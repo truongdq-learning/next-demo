@@ -1,0 +1,18 @@
+version: "3.8"
+services: 
+  next-demo:
+    container_name: next-demo
+    build:
+      context: .
+      target: dev
+    restart: always
+    command: yarn dev
+    environment:
+      - NODE_ENV=development
+      - PORT=4001
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 4001:4001
